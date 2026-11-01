@@ -142,14 +142,17 @@ const projectGalleries = {
   },
 
   pontosmart: {
-    title: 'PontoSmart — Ponto Eletrônico & IA Facial',
-    category: 'SaaS • Biometria Facial',
+    title: 'PontoSmart - Ponto Eletrônico & IA Facial',
+    category: 'SaaS • Biometria Facial & PWA',
     slides: [
       {
         src: 'assets/project_pontosmart.png',
-        caption: 'Interface PWA de Marcação de Ponto Facial com Câmera e Geolocalização GPS'
+        caption: '[Desktop] Quiosque de Ponto com Reconhecimento Facial, Pausa de Privacidade e Cerca GPS'
+      },
+      {
+        src: 'assets/pontosmart_mobile_quiosque.png',
+        caption: '[Mobile] Quiosque de Ponto Eletrônico PWA em Tela Cheia para Smartphones e Tablets'
       }
-      /* Espaço reservado: adicione novos objetos { src: 'assets/...', caption: '...' } aqui quando desejar subir novas fotos reais */
     ]
   },
   portal_chamados: {
