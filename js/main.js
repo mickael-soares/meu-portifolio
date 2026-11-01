@@ -112,6 +112,27 @@ function initSmoothScroll() {
    4. GALERIA DE TELAS DOS PROJETOS (MODAL & CARROSSEL / PASSADOR)
    ========================================================================== */
 const projectGalleries = {
+  agendamento_saas: {
+    title: 'Agendamento Online & Gestão de Clínicas (SaaS)',
+    category: 'SaaS • Multi-tenant • Agendamento',
+    slides: [
+      {
+        src: 'assets/project_agendamento.svg',
+        caption: 'Grade de Horários, Cabines de Procedimento e Sincronização em Tempo Real'
+      }
+    ]
+  },
+  cobranca_saas: {
+    title: 'Sistema de Cobrança Recorrente & Régua PIX',
+    category: 'Fintech • Cobrança & Mensageria',
+    slides: [
+      {
+        src: 'assets/project_cobranca.svg',
+        caption: 'Dashboard de Faturamento, Conciliação PIX QR Code e Régua de WhatsApp (E.164)'
+      }
+    ]
+  },
+
   pontosmart: {
     title: 'PontoSmart — Ponto Eletrônico & IA Facial',
     category: 'SaaS • Biometria Facial',
