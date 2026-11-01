@@ -113,22 +113,30 @@ function initSmoothScroll() {
    ========================================================================== */
 const projectGalleries = {
   agendamento_saas: {
-    title: 'Agendamento Online & Gestão de Clínicas (SaaS)',
-    category: 'SaaS • Multi-tenant • Agendamento',
+    title: 'Agendamento Online — Multi-Segmento SaaS',
+    category: 'SaaS • Multi-Segmento',
     slides: [
       {
-        src: 'assets/project_agendamento.svg',
-        caption: 'Grade de Horários, Cabines de Procedimento e Sincronização em Tempo Real'
+        src: 'assets/project_agendamento.png',
+        caption: 'Painel da Empresa — Visão Geral de Atendimentos, Profissionais, Salas e Clientes'
+      },
+      {
+        src: 'assets/project_agendamento_login.png',
+        caption: 'Tela de Autenticação e Entrada no Sistema Multi-tenant'
       }
     ]
   },
   cobranca_saas: {
-    title: 'Sistema de Cobrança Recorrente & Régua PIX',
+    title: 'Sistema de Cobrança',
     category: 'Fintech • Cobrança & Mensageria',
     slides: [
       {
-        src: 'assets/project_cobranca.svg',
-        caption: 'Dashboard de Faturamento, Conciliação PIX QR Code e Régua de WhatsApp (E.164)'
+        src: 'assets/project_cobranca.png',
+        caption: 'Gestão de Equipe, Perfis e Simulação de Disparo de Régua Automatizada (WhatsApp / PIX)'
+      },
+      {
+        src: 'assets/project_cobranca_login.png',
+        caption: 'Portal TISUPORTEMS PAY — Acesso Seguro com Autenticação e Perfis'
       }
     ]
   },
