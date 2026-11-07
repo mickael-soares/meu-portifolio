@@ -63,20 +63,6 @@ Especialista na concepção, arquitetura e entrega de aplicações web resilient
 
 ---
 
-## 💻 Como Rodar o Portfólio Localmente
-
-```bash
-# 1. Clone o repositório
-git clone https://github.com/tisuportems-Micka/meu-portfolio.git
-
-# 2. Acesse a pasta
-cd meu-portfolio
-
-# 3. Abra o arquivo index.html no navegador ou use a extensão Live Server do VS Code
-```
-
----
-
 ## 📬 Contato & Conexões
 
 - 💼 **LinkedIn:** [linkedin.com/in/mickael-s-97755098](https://www.linkedin.com/in/mickael-s-97755098/)

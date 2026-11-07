@@ -55,25 +55,29 @@ function initProjectFilters() {
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Atualizar classe ativa
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filterValue = btn.getAttribute('data-filter');
 
       projectCards.forEach(card => {
+        if (card._filterTimeout) {
+          clearTimeout(card._filterTimeout);
+        }
+
         const category = card.getAttribute('data-category') || '';
         const matches = filterValue === 'all' || category.split(' ').includes(filterValue);
+
         if (matches) {
-          card.style.display = 'block';
-          setTimeout(() => {
+          card.style.display = '';
+          card._filterTimeout = setTimeout(() => {
             card.style.opacity = '1';
             card.style.transform = 'scale(1)';
           }, 50);
         } else {
           card.style.opacity = '0';
           card.style.transform = 'scale(0.95)';
-          setTimeout(() => {
+          card._filterTimeout = setTimeout(() => {
             card.style.display = 'none';
           }, 300);
         }
@@ -87,21 +91,42 @@ function initProjectFilters() {
    ========================================================================== */
 function initSmoothScroll() {
   const navLinks = document.querySelectorAll('.nav-link-custom');
+  const trackedElements = document.querySelectorAll('section[id], footer[id]');
+  const navCollapse = document.getElementById('navbarNav');
+
+  // Fechar menu mobile ao clicar em um link
+  if (navCollapse && typeof bootstrap !== 'undefined') {
+    const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false });
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navCollapse.classList.contains('show')) {
+          bsCollapse.hide();
+        }
+      });
+    });
+  }
 
   window.addEventListener('scroll', () => {
     let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
+    const scrollPos = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const fullHeight = document.documentElement.scrollHeight;
+
+    // Se estiver no final da página, ativa contato
+    if (scrollPos + windowHeight >= fullHeight - 60) {
+      current = 'contato';
+    } else {
+      trackedElements.forEach(el => {
+        const top = el.offsetTop - 140;
+        if (scrollPos >= top) {
+          current = el.getAttribute('id');
+        }
+      });
+    }
 
     navLinks.forEach(link => {
       link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
+      if (current && link.getAttribute('href') === `#${current}`) {
         link.classList.add('active');
       }
     });
@@ -214,6 +239,12 @@ function initProjectGalleryModal() {
   let currentProjectSlides = [];
 
   galleryTriggers.forEach(trigger => {
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        trigger.click();
+      }
+    });
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
       const projectId = trigger.getAttribute('data-gallery-project');
